@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="builder" type="JetRunConfigurationType">
+    <option name="MAIN_CLASS_NAME" value="creational.builder.MainKt" />
+    <module name="design-patterns.main" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
