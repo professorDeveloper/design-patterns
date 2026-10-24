@@ -4,10 +4,13 @@ class GameCharacter(
     var id: String, var name: String,
     var level: Int,
     var weapon: String,
+    val inventory: ArrayList<String>
 ) : Copyable {
 
     override fun clone(): Any {
-        return GameCharacter(this.id, this.name, this.level, this.weapon)
+        val newList = ArrayList<String>()
+        newList.addAll(inventory)
+        return GameCharacter(this.id, this.name, this.level, this.weapon, newList)
     }
 
     override fun toString(): String {
