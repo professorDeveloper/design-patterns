@@ -1,6 +1,6 @@
 ## Design patterns (Creational, Structural, Behavioral) in Kotlin
 
-### - References
+### References
 
 ###### - [Builder Design Pattern in Kotlin using HTTP Request Task](src/creational/builder_http/README.md)
 ###### - [Prototype Design Pattern in Kotlin using Document Task](src/creational/prototype/README.md)
