@@ -1,6 +1,5 @@
 package structural.composite.with_project
 
-import creational.prototype.Project
 
 fun main(args: Array<String>) {
     val team = Team()
@@ -8,5 +7,4 @@ fun main(args: Array<String>) {
     val frontendDeveloper = FrontendDeveloper()
     team.addDeveloper(backendDeveloper)
     team.addDeveloper(frontendDeveloper)
-
 }
