@@ -1,3 +1,6 @@
-## Bridge Design Pattern example in Kotlin , Game Task
+## Design patterns (Creational, Structural, Behavioral) in Kotlin
 
-![img.png](img.png)
+# - References
+
+## - [Creational Design Patterns](/creational/README.md)
+## - [Structural Design Patterns](/structural/README.md)
