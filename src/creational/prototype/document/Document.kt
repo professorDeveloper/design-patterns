@@ -10,8 +10,12 @@ class Document(
 
 
     override fun clone(): Any {
-        val newTags = ArrayList<String>()
-        newTags.addAll(tags)
-        return Document(this.id, this.title, this.content, this.author, newTags)
+        val list = ArrayList<String>()
+        list.addAll(tags)
+        return Document(this.id, this.title, this.content, this.author, list)
+    }
+
+    override fun toString(): String {
+        return "Document(id='$id', title='$title', content='$content', author='$author', tags=$tags)"
     }
 }

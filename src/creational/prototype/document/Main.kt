@@ -11,5 +11,8 @@ fun main(args: Array<String>) {
     )
     val documentFactory = DocumentFactory(document)
     val document2 = documentFactory.cloneDocument()
-    println(document.equals(document2))
+    document2.tags.add("#newTag")
+    println(document2)
+    println(document)
+
 }
