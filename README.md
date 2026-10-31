@@ -1,8 +1,21 @@
-## Design patterns (Creational, Structural, Behavioral) in Kotlin
+# Design Patterns in Kotlin
 
-### References
+Idiomatic implementations of software design patterns written in modern Kotlin.
 
-###### - [Builder Design Pattern in Kotlin using HTTP Request Task](src/creational/builder_http/README.md)
-###### - [Prototype Design Pattern in Kotlin using Document Task](src/creational/prototype/README.md)
-###### - [Adapter Design Pattern in Kotlin using Payment Task](src/structural/adapter/README.md)
-###### - [Bridge Design Pattern in Kotlin using Game Task](src/structural/bridge/README.md)
+---
+
+## Creational Patterns
+
+| Pattern       | Context / Task    | Implementation                                       |
+|:--------------|:------------------|:-----------------------------------------------------|
+| **Builder**   | HTTP Request Task | [View Source](src/creational/builder_http/README.md) |
+| **Prototype** | Document Task     | [View Source](src/creational/prototype/README.md)    |
+
+## Structural Patterns
+
+| Pattern     | Context / Task | Implementation                                  |
+|:------------|:---------------|:------------------------------------------------|
+| **Adapter** | Payment Task   | [View Source](src/structural/adapter/README.md) |
+| **Bridge**  | Game Task      | [View Source](src/structural/bridge/README.md)  |
+
+---
