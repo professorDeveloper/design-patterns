@@ -1,7 +1,7 @@
 package structural.composite.file_system
 
 interface FileSystem {
+     val name: String
     fun getSize(): Int
-    fun show()
-
+    fun show(indent: String = "")
 }
