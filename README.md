@@ -13,9 +13,10 @@ Idiomatic implementations of software design patterns written in modern Kotlin.
 
 ## Structural Patterns
 
-| Pattern     | Context / Task | Implementation                                  |
-|:------------|:---------------|:------------------------------------------------|
-| **Adapter** | Payment Task   | [View Source](src/structural/adapter/README.md) |
-| **Bridge**  | Game Task      | [View Source](src/structural/bridge/README.md)  |
+| Pattern       | Context / Task  | Implementation                                    |
+|:--------------|:----------------|:--------------------------------------------------|
+| **Adapter**   | Payment Task    | [View Source](src/structural/adapter/README.md)   |
+| **Bridge**    | Game Task       | [View Source](src/structural/bridge/README.md)    |
+| **Composite** | FileSystem Task | [View Source](src/structural/composite/README.md) |
 
 ---
