@@ -1,8 +1,8 @@
 package structural.bridge.game
 
 fun main(args: Array<String>) {
-    val racingGame = RacingGame(CppDeveloper())
-    val footballGame = FootballGame(JavaDeveloper())
+    val racingGame = GameFactory.createGame("racing")
+    val footballGame = GameFactory.createGame("football")
     footballGame.developGame()
     racingGame.developGame()
 
