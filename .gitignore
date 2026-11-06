@@ -31,3 +31,7 @@ bin/
 # Project exclude paths
 /.gradle/
 /build/
+
+### Gradle (subprojects) ###
+**/build/
+**/.gradle/
