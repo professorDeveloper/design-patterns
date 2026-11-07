@@ -17,7 +17,7 @@ fun main() {
                 6.Chiqish
        """.trimIndent()
         )
-        println("Tanlovingizni kiriting (1-6): ")
+        print("Tanlovingizni kiriting (1-6): ")
         val choose = scanner.nextLine()
         when (choose) {
             "1" -> {
