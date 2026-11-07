@@ -10,7 +10,4 @@ object Log {
         println("ERROR: $message")
     }
 
-    fun debug(message: String) {
-        println("DEBUG: $message")
-    }
 }
