@@ -1,9 +1,11 @@
 package uz.azamov.smartcity
 
 import uz.azamov.smartcity.core.Controller
+import java.io.PrintStream
 import java.util.Scanner
 
 fun main() {
+    System.setOut(PrintStream(System.out, true))
     val scanner = Scanner(System.`in`)
     while (true) {
         println(

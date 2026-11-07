@@ -1,7 +1,7 @@
 package uz.azamov.smartcity.core.factories
 
-class StreetLight : Device {
-    override fun getName(): String {
+class StreetLight4 : Device {
+    override fun getName( ): String {
         return "Street Light"
     }
 

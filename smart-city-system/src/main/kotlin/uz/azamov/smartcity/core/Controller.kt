@@ -21,7 +21,6 @@ object Controller {
     private val weatherAdapter = WeatherAdapter()
     private val deviceFactory = DeviceFactory()
     private val securityProxy = SecurityProxy(energySystem, lightingSystem)
-
     private val builtStreets = mutableListOf<SmartStreet>()
 
     fun showCityReport() {
@@ -41,7 +40,6 @@ object Controller {
 
     fun buildNewStreet(scanner: Scanner) {
         println("\n--- Yangi obyekt qurish (Builder + Factory Method) ---")
-
         print("Ko'cha nomini kiriting: ")
         val name = scanner.nextLine().trim().ifBlank { "Noma'lum ko'cha" }
 
