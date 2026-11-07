@@ -1,5 +1,6 @@
 package uz.azamov.smartcity
 
+import uz.azamov.smartcity.core.Controller
 import java.util.Scanner
 
 fun main() {
@@ -16,23 +17,27 @@ fun main() {
                 6.Chiqish
        """.trimIndent()
         )
+        println("Tanlovingizni kiriting (1-6): ")
         val choose = scanner.nextLine()
         when (choose) {
             "1" -> {
-
+                Controller.showCityReport()
             }
 
             "2" -> {
+                Controller.buildNewStreet(scanner)
             }
 
             "3" -> {
+                Controller.securityMenu(scanner)
             }
 
             "4" -> {
+                Controller.connectToWeatherService()
             }
 
             "5" -> {
-
+                Controller.energyMenu(scanner)
             }
 
             "6" -> {
