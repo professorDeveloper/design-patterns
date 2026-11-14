@@ -1,43 +1,34 @@
 package uz.azamov.smartcity.modules.energy
 
-class EnergySystem {
-    private var totalConsumption: Double = 0.0
-    private var ecoModeEnabled: Boolean = false
-    private val maxCapacity: Double = 10000.0
-    fun consumeEnergy(amount: Double) {
-        if (ecoModeEnabled) {
-            println("Eko rejimi yoqilgan. Energiya sarfi kamayadi.")
-            totalConsumption += amount * 0.5
-        } else {
-            totalConsumption += amount
-        }
+import java.util.Locale
 
-        if (totalConsumption > maxCapacity) {
-            println("Ogohlantirish: Energiya tizimi haddan tashqari yuklanmoqda! Jami sarf: $totalConsumption kWh, Maksimal quvvat: $maxCapacity kWh.")
-        }
+class EnergySystem(private val maxCapacity: Double = 10_000.0) {
+    var totalConsumption = 0.0
+        private set
+    var isEcoMode = false
+        private set
+
+    val isOverloaded get() = totalConsumption > maxCapacity
+
+    fun consume(amount: Double): Double {
+        val actual = if (isEcoMode) amount / 2 else amount
+        totalConsumption += actual
+        return actual
     }
 
-    fun freeEnergy(amount: Double) {
-        totalConsumption -= amount
-        if (totalConsumption < 0) {
-            totalConsumption = 0.0
-        }
+    fun release(amount: Double): Double {
+        val released = minOf(amount, totalConsumption)
+        totalConsumption -= released
+        return released
     }
 
     fun setEcoMode(enabled: Boolean) {
-        ecoModeEnabled = enabled
-        if (ecoModeEnabled) {
-            println("Eko rejimi yoqilgan. Energiya sarfi kamayadi.")
-        } else {
-            println("Eko rejimi o'chirilgan. Energiya sarfi normal holatda.")
-        }
+        isEcoMode = enabled
     }
 
-    fun checkOverload(): Boolean {
-        return totalConsumption > maxCapacity
-    }
-
-    fun getSystemReport(): String {
-        return "Energiya tizimi hisobot: Jami sarf: $totalConsumption kWh, Maksimal quvvat: $maxCapacity kWh, Eko rejimi: ${if (ecoModeEnabled) "yoqilgan" else "o'chirilgan"}."
-    }
+    fun report() = String.format(
+        Locale.US,
+        "Energiya: sarf %.1f / %.1f kWh, eko rejim %s",
+        totalConsumption, maxCapacity, if (isEcoMode) "yoqilgan" else "o'chirilgan"
+    )
 }

@@ -1,45 +1,26 @@
 package uz.azamov.smartcity.core.proxy
 
 import uz.azamov.smartcity.core.singleton.Log
-import uz.azamov.smartcity.modules.energy.EnergySystem
-import uz.azamov.smartcity.modules.lighting.LightingSystem
 
 class SecurityProxy(
-    private val energySystem: EnergySystem,
-    private val lightingSystem: LightingSystem
-) {
-    private val emergencyAccessCode = "SC-2026"
-    private var emergencyActive = false
+    private val target: EmergencyControl,
+    private val accessCode: String
+) : EmergencyControl {
 
-    fun activateEmergencyMode(accessCode: String): Boolean {
-        if (accessCode != emergencyAccessCode) {
-            Log.error("Favqulodda rejimni yoqishga urinish rad etildi: kirish kodi noto'g'ri.")
-            return false
-        }
+    override val isActive get() = target.isActive
 
-        energySystem.setEcoMode(false)
-        lightingSystem.turnOnAll()
-        emergencyActive = true
-        Log.info("Favqulodda rejim faollashtirildi: barcha chiroqlar yoqildi, energiya to'liq quvvatda.")
-        return true
+    override fun activate() = if (hasAccess()) target.activate() else denied()
+
+    override fun deactivate() = if (hasAccess()) target.deactivate() else denied()
+
+    private fun hasAccess() = accessCode == ACCESS_CODE
+
+    private fun denied(): String {
+        Log.error("Favqulodda rejimga kirish rad etildi: kod noto'g'ri")
+        return "Kirish rad etildi."
     }
 
-    fun deactivateEmergencyMode(accessCode: String): Boolean {
-        if (accessCode != emergencyAccessCode) {
-            Log.error("Favqulodda rejimni o'chirishga urinish rad etildi: kirish kodi noto'g'ri.")
-            return false
-        }
-
-        if (!emergencyActive) {
-            Log.info("Favqulodda rejim allaqachon faol emas.")
-            return true
-        }
-
-        lightingSystem.setEcoMode()
-        emergencyActive = false
-        Log.info("Favqulodda rejim o'chirildi, tizim normal holatga qaytdi.")
-        return true
+    companion object {
+        const val ACCESS_CODE = "SC-2026"
     }
-
-    fun isEmergencyActive(): Boolean = emergencyActive
 }

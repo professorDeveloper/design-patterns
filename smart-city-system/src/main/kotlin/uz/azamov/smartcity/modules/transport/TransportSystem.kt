@@ -1,30 +1,25 @@
 package uz.azamov.smartcity.modules.transport
 
+enum class TrafficLevel(val title: String, val greenLightSeconds: Int) {
+    LOW("past", 20),
+    NORMAL("normal", 30),
+    HIGH("yuqori", 60)
+}
+
 class TransportSystem {
-    private var trafficLevel = "NORMAL"
-    private var greenLightDuration = 30 // second
+    var trafficLevel = TrafficLevel.NORMAL
+        private set
+    var trafficLightCount = 0
+        private set
 
-    fun updateTrafficLevel(level: Int) {
-        when (trafficLevel) {
-            "HIGH" -> {
-                greenLightDuration = 60
-                println("Transport: Tirbandlik yuqori! Yashil chiroq vaqti 60 soniyaga uzaytirildi.")
-            }
-
-            "LOW" -> {
-                greenLightDuration = 20
-                println("Transport: Yo'llar bo'sh. Yashil chiroq vaqti 20 soniyaga tushirildi.")
-            }
-
-            else -> {
-                greenLightDuration = 30
-                println("Transport: Harakat normal. Yashil chiroq vaqti 30 soniya.")
-            }
-        }
+    fun updateTrafficLevel(level: TrafficLevel) {
+        trafficLevel = level
     }
 
-    fun getTrafficReport(): String {
-        return "Transport tizimi hisobot: Tirbandlik darajasi: $trafficLevel, Yashil chiroq vaqti: $greenLightDuration soniya."
+    fun addTrafficLight() {
+        trafficLightCount++
     }
 
+    fun report() = "Transport: tirbandlik ${trafficLevel.title}, yashil chiroq ${trafficLevel.greenLightSeconds} soniya, " +
+        "svetaforlar $trafficLightCount ta"
 }

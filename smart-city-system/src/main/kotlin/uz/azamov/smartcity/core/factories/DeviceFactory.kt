@@ -1,12 +1,9 @@
 package uz.azamov.smartcity.core.factories
 
 class DeviceFactory {
-    fun createDevice(type: String): Device? {
-        return when (type) {
-            "StreetLight" -> StreetLight()
-            "Camera" -> Camera()
-            else -> null
-        }
+    fun createDevice(type: DeviceType): Device = when (type) {
+        DeviceType.STREET_LIGHT -> StreetLight()
+        DeviceType.CAMERA -> Camera()
+        DeviceType.TRAFFIC_LIGHT -> TrafficLight()
     }
-
 }
