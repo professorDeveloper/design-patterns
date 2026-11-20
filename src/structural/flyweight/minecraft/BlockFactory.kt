@@ -1,16 +1,11 @@
 package structural.flyweight.minecraft
 
 object BlockFactory {
-    val blockTypes = mutableMapOf<String, BlockType>()
+    val blockTypesCache = mutableMapOf<String, BlockType>()
 
-    @OptIn(ExperimentalStdlibApi::class)
-    fun createBlockType(name: String, texture: String, color: String): BlockType {
-        val key = "$name-$texture-$color"
-        val blockType = blockTypes.getOrElseIfNull(key) {
-            val newBlockType = BlockType(name, texture, color)
-            blockTypes[key] = newBlockType
-            newBlockType
+    fun createBlockType(category: BlockCategory): BlockType {
+        return blockTypesCache.getOrPut(category.name) {
+            BlockType(category.name, category.texture, category.color)
         }
-        return blockType
     }
 }
