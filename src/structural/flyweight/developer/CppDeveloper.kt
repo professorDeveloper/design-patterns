@@ -1,4 +1,4 @@
-package structural.flyweight
+package structural.flyweight.developer
 
 class CppDeveloper : Developer {
     override fun writeCode(): String {

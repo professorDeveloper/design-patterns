@@ -1,4 +1,4 @@
-package structural.flyweight
+package structural.flyweight.developer
 
 class JavaDeveloper: Developer {
     override fun writeCode(): String {
