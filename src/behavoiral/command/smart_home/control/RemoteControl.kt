@@ -22,6 +22,15 @@ class RemoteControl {
         command?.execute()
     }
 
+    fun remoteCommand(commandName: String) {
+        val command = commands.find { it.name == commandName }
+        if (command != null) {
+            command.execute()
+        } else {
+            println("Command '$commandName' not found in the remote control.")
+        }
+    }
+
     fun clearCommands() {
         commands.clear()
     }
