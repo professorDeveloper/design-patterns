@@ -4,6 +4,8 @@ import behavoiral.command.smart_home.commands.base.Command
 import behavoiral.command.smart_home.devices.Light
 
 class LightOnCommand(private val light: Light) : Command {
+    override val name: String = "Light On"
+
     override fun execute() {
         light.turnOn()
     }

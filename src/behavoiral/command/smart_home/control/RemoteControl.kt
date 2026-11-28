@@ -3,28 +3,37 @@ package behavoiral.command.smart_home.control
 import behavoiral.command.smart_home.commands.base.Command
 
 class RemoteControl {
-    private val commands = mutableMapOf<String, Command>()
+    private val commands = mutableListOf<Command>()
 
-    fun setCommand(button: String, command: Command) {
-        commands[button] = command
+    fun addCommand(command: Command) {
+        commands.add(command)
     }
 
-    fun pressButton(button: String) {
-        commands[button]?.execute() ?: println("No command assigned to button: $button")
+    fun executeCommands() {
+        for (command in commands) {
+            command.execute()
+        }
+        commands.clear()
     }
 
-    fun removeCommand(button: String) {
-        commands.remove(button)
+
+    fun executeCommand(commandName: String) {
+        val command = commands.find { it.name == commandName }
+        command?.execute()
     }
 
     fun clearCommands() {
         commands.clear()
     }
 
-    fun listCommands() {
-        println("Commands:")
-        commands.forEach { (button, _) ->
-            println(button)
+    fun showCommands() {
+        if (commands.isEmpty()) {
+            println("No commands in the remote control.")
+        } else {
+            println("Commands in the remote control:")
+            for (command in commands) {
+                println("- ${command.name}")
+            }
         }
     }
 }

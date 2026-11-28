@@ -19,15 +19,17 @@ fun main(args: Array<String>) {
 
     val airConditionerOnCommand = AirConditionerOnCommand(airConditioner)
     val airConditionerOffCommand = AirConditionerOffCommand(airConditioner)
+    remoteControl.addCommand(lightOnCommand)
+    remoteControl.addCommand(lightOffCommand)
+    remoteControl.addCommand(airConditionerOnCommand)
+    remoteControl.addCommand(airConditionerOffCommand)
 
-    remoteControl.setCommand("Light On", lightOnCommand)
-    remoteControl.setCommand("Light Off", lightOffCommand)
-    remoteControl.setCommand("Air Conditioner On", airConditionerOnCommand)
-    remoteControl.setCommand("Air Conditioner Off", airConditionerOffCommand)
 
-    remoteControl.pressButton("Light On")
-    remoteControl.pressButton("Light Off")
+    remoteControl.showCommands()
 
-    remoteControl.listCommands()
+    remoteControl.executeCommand("Light On")
+
+    remoteControl.executeCommand("Light Off")
+
 
 }
