@@ -1,4 +1,4 @@
-package behavoiral.cor
+package behavoiral.cor.auth
 
 class AuthHandler : Handler() {
     override fun handle(request: String) {

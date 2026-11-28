@@ -1,4 +1,4 @@
-package behavoiral.cor
+package behavoiral.cor.auth
 
 fun main(args: Array<String>) {
     val auth = AuthHandler()

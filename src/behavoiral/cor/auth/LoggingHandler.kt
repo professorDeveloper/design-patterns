@@ -1,4 +1,4 @@
-package behavoiral.cor
+package behavoiral.cor.auth
 
 class LoggingHandler : Handler() {
     override fun handle(request: String) {

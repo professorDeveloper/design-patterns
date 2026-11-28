@@ -1,4 +1,4 @@
-package behavoiral.cor
+package behavoiral.cor.auth
 
 abstract class Handler {
     private var next: Handler? = null

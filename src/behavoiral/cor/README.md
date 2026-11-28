@@ -1,6 +1,6 @@
 #### Chain of Responsibility (CoR) — so'rovni zanjir (handlerlar ketma-ketligi) bo'ylab uzatadi; har bir bo'g'in uni tekshirib, yo o'zi qayta ishlaydi/to'xtatadi, yo keyingisiga o'tkazadi ("kim hal qiladi?").
 
-![img.png](img.png)
+![img.png](auth/img.png)
 
 
 #### Chain of Responsibility (CoR) qanday ishlaydi?
@@ -14,4 +14,4 @@ Yuqoridagi diagrammada: so'rov (**Request**) birinchi Handler ga keladi. Agar sh
 
 **Android Touch Events**: Ekranga barmoq tekkanda hodisa Activity → ViewGroup → Button zanjiri bo'ylab o'tadi; qaysi biri ushlab olsa, zanjir to'xtaydi.
 
-![img_1.png](img_1.png)
+![img_1.png](auth/img_1.png)
